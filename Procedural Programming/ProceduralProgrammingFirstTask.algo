@@ -1,0 +1,24 @@
+ALGORITHM First_Task 
+VAR
+    numberV : INTEGER;
+    tab : ARRAY_OF_FLOAT[];
+BEGIN
+
+Read(numberV); // Number of pairs
+
+FOR i FROM 0 TO (numberV*2)-1 STEP step DO 
+    Read(tab1[i][0]); //Vector first value
+    Read(tab1[i][1]); //Vector second value
+END_FOR
+
+FUNCTION dot_product(tab : ARRAY_OF_FLOAT[], index1 : INTEGER, index2 : INTEGER) : FLOAT
+BEGIN
+    RETURN tab[index1][0] * tab[index2][1] + tab[index1][1] * tab[index2][0];
+END
+
+
+FOR i FROM 0 TO numberV-1 STEP step DO 
+    Write(IF(dot_product(tab1, i, i+1) == 0)); //if true the numbers are orthogonal
+END_FOR
+
+END

@@ -1,0 +1,25 @@
+ALGORITHM First_Task 
+VAR
+    str : STRING[];
+    vowels, words, i : INTEGER;
+BEGIN
+
+Read(str);
+str := ToLower(str);
+FOR i FROM 0 TO str.length-1 STEP step DO 
+    SWITCH (str[i]) DO
+        case "." : i = str.length-1; BREAK;
+        case " " : words := words + 1; BREAK;
+        case "a" : vowels := vowels + 1; BREAK;
+        case "e" : vowels := vowels + 1; BREAK;
+        case "u" : vowels := vowels + 1; BREAK;
+        case "i" : vowels := vowels + 1; BREAK;
+        case "o" : vowels := vowels + 1; BREAK;
+        case "y" : vowels := vowels + 1; BREAK;
+        default : BREAK;
+    END_SWITCH
+END_FOR
+
+    Write(words);
+    Write(vowels);
+END

@@ -1,0 +1,71 @@
+ALGORITHM First_Task 
+VAR
+    tab1, tab2, tab3 : ARRAY_OF INTEGER[[];
+    sum, i, j, k: INTEGER;
+BEGIN
+
+// Read the two arrays
+
+Read(tab1);
+Read(tab2);
+
+//delete numbers that exist two times in tab1
+
+FOR i FROM 0 TO tab1.length-1 STEP step DO 
+    FOR j FROM 0 TO tab1.length-1 STEP step DO 
+        IF (tab1[i] = tab1[j]) THEN
+            tab1[i] := 0;
+            tab1[j] := 0;
+        END_IF
+    END_FOR
+END_FOR
+
+
+//delete numbers that exist two times in tab2
+
+FOR i FROM 0 TO tab2.length-1 STEP step DO 
+    FOR j FROM 0 TO tab2.length-1 STEP step DO 
+        IF (tab2[i] = tab2[j]) THEN
+            tab2[i] := 0;
+            tab2[j] := 0;
+        END_IF
+    END_FOR
+END_FOR
+
+//put element that exist in both tab1 and tab2 in tab3
+
+FOR i FROM 0 TO tab1.length-1 STEP step DO 
+    FOR j FROM 0 TO tab2.length-1 STEP step DO 
+        IF (tab1[i] = tab2[j]) THEN
+            tab3[k] := tab1[i];
+            k := k + 1;
+        END_IF
+    END_FOR
+END_FOR
+
+//add unique elements in tab1 to sum
+
+FOR i FROM 0 TO tab1.length-1 STEP step DO 
+    FOR k FROM 0 TO tab3.length-1 STEP step DO 
+        IF (tab1[i] <> tab3[k]) THEN
+            sum := sum + tab1[i];
+        END_IF
+    END_FOR
+END_FOR
+
+//add unique elements in tab2 to sum
+
+FOR j FROM 0 TO tab2.length-1 STEP step DO 
+    FOR k FROM 0 TO tab3.length-1 STEP step DO 
+        IF (tab2[j] <> tab3[k]) THEN
+            sum := sum + tab2[j];
+        END_IF
+    END_FOR
+END_FOR
+
+//show sum
+
+Write(sum);
+
+
+END
