@@ -1,0 +1,45 @@
+ALGORITHM Second_Task 
+VAR
+    tabLen, i, b, num : INTEGER;
+    tab : ARRAY_OF_INTEGER[];
+    findMin : BOOLEAN;
+BEGIN
+
+Read(tabLen);
+FOR a FROM 0 TO tabLen-1 STEP step DO 
+    Read(tab[a]); //Insert element into tab
+END_FOR
+
+i := 1;
+
+WHILE (i < tabLen) DO
+
+findMin = FALSE;
+b := i;
+
+WHILE (NOT findMin) DO
+    IF(tab[i] <= tab[b] AND b > 0) THEN
+        b := b - 1;
+    ELSE_IF(tab[i] > tab[b])
+        b := b + 1;
+        findMin = TRUE;
+    ELSE
+        findMin = TRUE;
+    END_IF
+
+END_WHILE
+
+num := tab[i];
+
+FOR j FROM i TO b STEP -1 DO 
+    tab[j] = tab[j-1];
+END_FOR
+
+tab[j] = num;
+
+
+i := i + 1;
+END_WHILE
+
+
+END
